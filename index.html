@@ -59,7 +59,10 @@
 
 <body>
 
-	
+	<div id="videoOverlay">
+		<div class="close">+</div>
+		<iframe id="video" src="//player.vimeo.com/video/108197268" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+	</div>
 	<div id="splash" class="section">
 	<header id="main">
 		<h1><a href="/">Rawbry</a></h1>
@@ -72,9 +75,9 @@
 		</div>
 	</header>
 		<div class="content">
-			<a href="#">Ethos</a>
-			<a href="#">Shop</a>
-			<a href="#">Play</a>
+			<a id="ethosBtn" href="#">Ethos</a>
+			<a id="shopBtn" href="#">Shop</a>
+			<a id="playBtn" href="#">Play</a>
 		</div>
 		<video autoplay loop>
 		  <source src="assets/rawbrybgvid.webm" type="video/webm">
@@ -159,16 +162,18 @@
 			<div class="clear"></div>
 		</ul>
 	</div>
-
 	</div>
 	
 	<div id="footer">
+		<a href="https://www.google.com/maps/place/135+N+Sierra+St,+Reno,+NV+89501/@39.5257726,-119.814839,17z/data=!3m1!4b1!4m2!3m1!1s0x809940cad71c2175:0xc63acc4f8cdd040c" target="_blank">
 		<div class="map">
-		<iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=135%20North%20Sierra%20Street%2C%20Reno%2C%20NV%2C%20United%20States&key=AIzaSyDjw_jx_dKnE5ubAFSCCjSe_CPGmoPIs4c"></iframe>
+		<p>View on Google Maps</p>
 		</div>
+		</a>
 		<div class="info">
-			<p>contact@rawbry.com</p>
-			<p>493 Rawbry Lane</p>
+			<p>135 N Sierra St</p>
+			<p>Reno, NV 89501</p>
+			<p><a href="mailto:contact@rawbry.com" target="_blank">contact@rawbry.com</a></p>
 			<p>&copy; Copyright Rawbry 2015. All Rights Reserved.</p>
 		</div>
 	</div>
@@ -179,6 +184,8 @@
 
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify if needed -->
+<script src="assets/js/libs/froogaloop.js"></script>
+<script src="assets/js/libs/jquery-ui.min.js"></script>
 <script src="assets/js/libs/instafeed.js"></script>
 <script src="assets/js/functions.js"></script>
 

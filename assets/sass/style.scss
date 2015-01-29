@@ -85,18 +85,18 @@ $font: 'bebasregular';
 			background-color: black;
 		}
 	}
-	h1:hover {
-		a:after {
-			content: '';
-			height: 12px;
-			width: 112%;
-			background-color: white;
-			position: absolute;
-			top: 45%;
-			left: -6%;
-			@include transform(translate(0px,-50%));
-		}
-	}
+	// h1:hover {
+	// 	a:after {
+	// 		content: '';
+	// 		height: 12px;
+	// 		width: 112%;
+	// 		background-color: white;
+	// 		position: absolute;
+	// 		top: 45%;
+	// 		left: -6%;
+	// 		@include transform(translate(0px,-50%));
+	// 	}
+	// }
 	.socialIcons {
 		float: right;
 		margin-right: $margin;
@@ -192,7 +192,7 @@ video {
 	}
 	.col {
 		float: left;
-		width: 14.2857143%;
+		width: 16.667%;
 		height: 100px;
 		position: relative;
 		overflow: hidden;
@@ -201,8 +201,8 @@ video {
 			position: absolute;
 			top: 0%; left: 0%;
 			margin-bottom: -5px;
-			border: 0px solid black;
-			@include transition(all, 150ms, ease-out);
+			border: 0px solid white;
+			@include transition(all, 300ms, ease-out);
 			box-sizing: border-box;
 		}
 		img:hover {
@@ -346,6 +346,30 @@ video {
 		width: 50%;
 		height: 100%;
 		overflow: hidden;
+		background: url(../img/rawbryStaticMap.jpg) no-repeat center center; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		p {
+			position: absolute;
+			top: 50%; left: 25%;
+			@include transform(translate(-50%,-50%));
+			letter-spacing: 1px;
+			color: white;
+			background-color: rgba(0,0,0,.8);
+			padding: 8px 10px 10px 10px;
+			font-family: $font;
+			font-size: 1.5em;
+			text-decoration: none;
+			opacity: 0;
+			@include transition(all, 250ms, ease-out);
+		}
+	}
+	.map:hover {
+		p{
+			opacity: 1;
+		}
 	}
 	.info {
 		font-family: $font;
@@ -354,24 +378,52 @@ video {
 		top: 50%;
 		@include transform(translate(50%,-50%));
 		right: 25%;
-		p:first-child {
-			margin-bottom: 10px;
+		p:nth-child(2) {
+			margin-bottom: 25px;
 		}
 		p {
 			margin-bottom: 5px;
+			a {
+				color: white;
+				text-decoration: none;
+				cursor: hand; cursor: pointer;
+			}
 		}
 		p:last-child {
 			margin-top: 25px;
 			margin-bottom: 0px;
+			font-size: .8em;
+			opacity: .6;
 		}
 	}
 }
 
+#videoOverlay {
+	position: fixed;
+	top: 0; left: 0;
+	z-index: 500;
+	height: 100%; width: 100%;
+	background-color: rgba(0,0,0,.95);
+	opacity: 0;
+	display: none;
+	.close {
+		position: absolute;
+		top: 15px; right: 15px;
+		color: white;
+		@include transform(rotate(45deg));
+		cursor: hand; cursor: pointer;
+		font-size: 1.3em;
+	}
+	iframe {
+		position: absolute;
+		top: 50%; left: 50%;
+		@include transform(translate(-50%,-50%));
+		height: 90%; width: 90%;
+	}
+} 
+
 @media (max-width: 1200px) {
 	#vision {
-		.col:nth-child(1), .col:nth-child(7), {
-			display: none;
-		}
 		.col {
 			width: 20%;
 		}
@@ -385,6 +437,26 @@ video {
 		}
 	}
 }
+@media (max-width: 810px) {
+	#footer {
+		.map, .info {
+			width: 100%;
+		}
+		.map {
+			p{
+				left: $margin;
+				@include transform(translate(0px,-50%));
+			}
+		}
+		.info {
+			position: static;
+			padding: $margin;
+			float: left;
+			@include transform(translate(0,0));
+			background-color: black;
+		}
+	}
+}
 @media (max-width: 640px) {
 	#spaces {
 		>ul {
@@ -394,9 +466,6 @@ video {
 		}
 	}
 	#vision {
-		 .col:nth-child(1), .col:nth-child(2), .col:nth-child(6), .col:nth-child(7), {
-			display: none;
-		}
 		.col {
 			width: 33.33%;
 		}

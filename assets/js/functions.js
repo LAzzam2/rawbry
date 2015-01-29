@@ -9,11 +9,6 @@
 
 // remap jQuery to $
 (function($){
-
-
-		
-
-
 	    function sizeGrids(){
 			$('#spaces>ul>li').height($('#spaces li').width());
 			$('.col').height($('.col').width());
@@ -27,12 +22,53 @@
 	        target:'vision',
 	        template: '<div class="col"><a href="{{link}}" target="_blank"><img class="item" src="{{image}}" alt="vision"/></a></div>',
 	        resolution: 'standard_resolution',
+	        limit: 24,
 	        after: function(){
 	        	sizeGrids()
 	        	$('#vision').append('<div class="clear"/>')
 	        },
+	        error: function(){
+	        	alert('uh oh');
+	        }
 	    });
 	    feed.run();
+
+	    var body = $("html, body");
+
+	    $('#ethosBtn').on('click',function(){
+			body.animate({scrollTop:window.innerHeight}, 1000, 'easeOutQuad', function() { 
+			});
+	    });
+
+	    $('#shopBtn').on('click',function(){
+	    	var scrollTop     = $(window).scrollTop(),
+    			elementOffset = $('#spaces').offset().top,
+    			distance      = (elementOffset - scrollTop);
+			body.animate({scrollTop:distance}, 1500, 'easeOutQuad', function() { 
+			});
+	    });
+
+	    var iframe = document.getElementById('video');
+			var player = $f(iframe);
+	    $('#playBtn').on('click',function(){
+	    	$('#videoOverlay').css({
+					display: 'inherit',
+					opacity: 0
+				});
+			$('#videoOverlay').animate({opacity:'1'}, function(){
+				player.api("play");
+			});
+	    });
+	    $('#videoOverlay .close').on('click', function(){
+	    	player.api("pause");
+			$('#videoOverlay').fadeOut();
+	    });
+	    
+
+	    
+
+
+	    
 		
 
 	/* trigger when page is ready */
