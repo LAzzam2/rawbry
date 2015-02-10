@@ -31,11 +31,11 @@
 	        	alert('uh oh');
 	        }
 	    });
-	    feed.run();
+	    // feed.run();
 
 	    var body = $("html, body");
 
-	    $('#ethosBtn').on('click',function(){
+	    $('#cultureBtn').on('click',function(){
 			body.animate({scrollTop:window.innerHeight}, 1000, 'easeOutQuad', function() { 
 			});
 	    });
@@ -73,10 +73,8 @@
 
 	/* trigger when page is ready */
 	$(document).ready(function (){
-	
 		// your functions go here
 		sizeGrids();
-	
 	});
 	
 	$(window).load(function() {
@@ -85,6 +83,14 @@
 	
 	$(window).resize(function() {
 		sizeGrids();
+	});
+
+	$(window).scroll(function() {
+	  if($(this).scrollTop()>=window.innerHeight){
+	  	$('#bgVid, #nav').fadeOut();
+	  }else {
+	  	$('#bgVid, #nav').fadeIn();
+	  }
 	});
 
 })(window.jQuery);

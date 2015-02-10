@@ -44,7 +44,7 @@ body {
 }
 
 
-$headerHeight: 60px;
+$headerHeight: 40px;
 $margin: 25px;
 $font: 'bebasregular';
 
@@ -54,10 +54,10 @@ $font: 'bebasregular';
 
 #main {
 	position: fixed;
-	top: 30px; left: 0;
+	top: $margin; left: 0px;
 	height: $headerHeight;
 	width: 100%;
-	z-index: 10;
+	z-index: 5;
 	li, h1 {
 		line-height: $headerHeight;
 		font-family: sans-serif;
@@ -72,11 +72,11 @@ $font: 'bebasregular';
 		font-family: $font;
 		letter-spacing: 1px;
 		position: relative;
+		text-indent: -9999em;
+		width: 125px;
+		height: $headerHeight;
+		background: url(../img/rawbry_logo.svg)no-repeat;
 		a {
-			border:3px solid white;
-			text-transform: uppercase;
-			padding: 0px 4px 3px 5px;
-			font-size: 3em;
 			span {
 				opacity: .4;
 			}
@@ -102,14 +102,24 @@ $font: 'bebasregular';
 		margin-right: $margin;
 		li {
 			float: left;
-			margin-right: 10px;
+			margin-right: 5px;
+			margin-top: 8px;
 			opacity: .6;
-			width: 20px;
+			width: 15px;
+			height: 15px;
 			@include transition(all, 250ms, ease-out);
 			font-size: .9em;
 			font-weight: 100;
+			position: relative;
+			padding: 3px;
+			outline: 1px solid rgba(255,255,255,.3);
+  			cursor: hand; cursor: pointer;
 			img {
-				width: 100%;
+				height: 15px; width: 15px;
+				position: absolute;
+				top: 3px; left: 3px;
+				opacity: .5;
+				@include transition(all, 250ms, ease-out);
 			}
 		}
 		li:last-of-type {
@@ -117,52 +127,70 @@ $font: 'bebasregular';
 		}
 		li:hover {
 			opacity: 1;
+			img {
+				opacity: 1;
+			}
 		}
 	}
+}
+#nav {
+	position: fixed;
+	bottom: $margin; left: $margin;
+	color: white;
+	font-family: $font;
+	z-index: 5;
+	h3 {
+		font-size: 3em;
+	}
+	p {
+		margin: 15px 0px;
+		font-size: 1.3em;
+	}
+	a {
+		color: white;
+		border: 1px solid white;
+		padding: 8px 10px 10px 10px;
+		float: left;
+		text-decoration: none;
+		font-size: 1em;
+		margin-right: 5px;
+		text-transform: uppercase;
+		opacity: .8;
+		line-height: 14px;
+	}
+	a:hover {
+		background-color: black;
+		opacity: 1;
+	}
+	.arrow-right {
+		width: 0; 
+		height: 0; 
+		border-top: 7px solid transparent;
+		border-bottom: 7px solid transparent;
+		
+		border-left: 15px solid rgba(255,255,255,.8);
+		@include transition(all,250ms,ease-out);
+	}
+	.arrow-right:hover{
+		border-left: 15px solid rgba(255,255,255,1);
+	}
+}
+#bgVid {
+	position: fixed; top: 0px; left: 0px;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto;
+	opacity: .7;
+	z-index: -1;
+}
+#floorplans {
 }
 #floorplans, #footer {
 	position: relative;
-	z-index: 10;
+	background-color: black;
 }
 #splash {
 	position: relative;
-	z-index: 5;
-  .content {
-		position: fixed;
-		bottom: $margin; left: $margin;
-		color: white;
-		max-width: 500px;
-		font-family: $font;
-		z-index: 10;
-		h3 {
-			font-size: 3em;
-		}
-		p {
-			margin: 15px 0px;
-			font-size: 1.3em;
-		}
-		a {
-			color: white;
-			border: 1px solid white;
-			padding: 8px 10px 10px 10px;
-			float: left;
-			text-decoration: none;
-			font-size: 1.5em;
-			margin-right: 5px;
-			text-transform: uppercase;
-			opacity: .8;
-		}
-		a:hover {
-			background-color: black;
-			opacity: 1;
-		}
-	}
-	video {
-		position: fixed; right: 0; bottom: 0;
-min-width: 100%; min-height: 100%;
-width: auto; height: auto; z-index: 0;
-opacity: .7;
-	}
+	z-index: 0;
   >p {
   	position: absolute;
   	bottom: 15px; left: 50%;
@@ -176,13 +204,13 @@ opacity: .7;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
-}
-video {
-	position: absolute;
-	top:50%; left: 50%;
-	@include transform(translate(-50%,-50%));
-	min-height: 101%; min-width: 101%;
-	height: auto; width: auto;
+	video {
+		position: absolute;
+		top:50%; left: 50%;
+		@include transform(translate(-50%,-50%));
+		min-height: 101%; min-width: 101%;
+		height: auto; width: auto;
+	}
 }
 
 #vision {
@@ -192,7 +220,7 @@ video {
 	}
 	.col {
 		float: left;
-		width: 16.667%;
+		width: 20%;
 		height: 100px;
 		position: relative;
 		overflow: hidden;
@@ -208,6 +236,82 @@ video {
 		img:hover {
 			border: 3px solid white;
 		}
+	}
+}
+
+#purpose {
+	background: url(../img/jthflicker.gif) no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+}#purpose {
+	height: 650px;
+}
+#purpose, #challenge {
+	position: static;
+	>div {
+		padding: 250px 25px;
+		margin: auto;
+		max-width: 760px;
+		color: white;
+		font-family: sans-serif;
+	}
+	span {
+		letter-spacing: -3px;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		display: none;
+	}
+	p {
+		position: relative;
+	}
+	h3 {
+		font-size: 3em;
+		font-family: $font;
+	}
+	h3:first-of-type {
+		margin-bottom: 5px;
+	}
+	h3:last-of-type {
+		opacity: .6;
+		margin-top: 15px;
+		position: relative;
+		display: inline-block;
+	}
+	h3:last-of-type:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		@include transform(translate(0%,-30%));
+		left: -2%;
+		width: 104%;
+		background-color: white;
+		height: 15px;
+	}
+	.fill {
+		position: absolute;
+		top: 0; left: 0;
+		height: 100%; width: 100%;
+		background-color: rgba(0,0,0,.8);
+	}
+}
+#challenge {
+	background: url(../img/rawbryProduct.jpg) no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	img {
+		width: 100%;
+	}
+	p:first-of-type{
+		font-size: 2em;
+	}
+	small {
+		font-size: .9em;
 	}
 }
 #spaces {
@@ -250,7 +354,7 @@ video {
 						color: rgba(255,255,255,.4);
 					}
 				}
-				a {
+				a, form>input {
 					margin-top: 25px;
 					padding: 0px 10px;
 					line-height: 35px;
@@ -259,8 +363,10 @@ video {
 					text-decoration: none;
 					display: inline-block;
 					font-family: $font;
+					font-size: 16px;
+					background-color: rgba(255,255,255,0);
 				}
-				a:hover {
+				a:hover, form>input:hover {
 					background-color: white;
 					color: black;
 				}
@@ -284,7 +390,7 @@ video {
 			}
 		}
 		>li:nth-of-type(1) {
-			background: url(../img/female.jpg) no-repeat center center; 
+			background: url(http://cdn.shopify.com/s/files/1/0757/7777/products/tank_df5124bd-acfb-498d-97dd-e5d2c0052790_large.jpg%3Fv=1422573437) no-repeat center center; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -399,13 +505,13 @@ video {
 }
 
 #videoOverlay {
-	position: fixed;
+	position: absolute;
 	top: 0; left: 0;
-	z-index: 500;
 	height: 100%; width: 100%;
 	background-color: rgba(0,0,0,.95);
 	opacity: 0;
 	display: none;
+	z-index: 100;
 	.close {
 		position: absolute;
 		top: 15px; right: 15px;
@@ -454,6 +560,23 @@ video {
 			float: left;
 			@include transform(translate(0,0));
 			background-color: black;
+		}
+	}
+	#challenge{
+		h3{
+			font-size: 1.6em;
+		}
+		h3:last-of-type:after{
+			height: 0px;
+
+		}
+	}
+	#purpose {
+		height: auto;
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
 		}
 	}
 }
