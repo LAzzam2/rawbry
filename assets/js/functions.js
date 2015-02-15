@@ -14,11 +14,12 @@
 			$('.col').height($('.col').width());
 		};
 
+		//instafeed setup
 		var feed = new Instafeed({
 	        get: 'user',
-        	userId: 33475386,
-        	accessToken: '33475386.467ede5.2500a2c6ccd34db6a5cb0989f433c399',
-	        clientId: '591e5de50c83444eb87e29f703ba02b6',
+        	userId: 'USERID',
+        	accessToken: 'ACCESSTOKEN',
+	        clientId: 'CLIENTID',
 	        target:'vision',
 	        template: '<div class="col"><a href="{{link}}" target="_blank"><img class="item" src="{{image}}" alt="vision"/></a></div>',
 	        resolution: 'standard_resolution',
